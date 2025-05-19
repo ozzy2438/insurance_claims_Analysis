@@ -1,0 +1,20 @@
+[
+  {
+    "policy_state": "OH",
+    "total_claims": 3549,
+    "total_claim_amount": 200818690,
+    "avg_claim_amount": 56584.58438996901
+  },
+  {
+    "policy_state": "IL",
+    "total_claims": 3332,
+    "total_claim_amount": 187271550,
+    "avg_claim_amount": 56203.94657863145
+  },
+  {
+    "policy_state": "IN",
+    "total_claims": 3330,
+    "total_claim_amount": 189943590,
+    "avg_claim_amount": 57040.11711711712
+  }
+]

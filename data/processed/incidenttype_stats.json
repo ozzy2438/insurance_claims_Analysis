@@ -1,0 +1,22 @@
+[
+  {
+    "incident_type": "Single Vehicle Collision",
+    "avg_claim_amount": 65407.01925254813,
+    "claim_count": 4415
+  },
+  {
+    "incident_type": "Multi-vehicle Collision",
+    "avg_claim_amount": 61417.16023875114,
+    "claim_count": 4356
+  },
+  {
+    "incident_type": "Vehicle Theft",
+    "avg_claim_amount": 15618.12581913499,
+    "claim_count": 763
+  },
+  {
+    "incident_type": "Parked Car",
+    "avg_claim_amount": 14493.44165435746,
+    "claim_count": 677
+  }
+]

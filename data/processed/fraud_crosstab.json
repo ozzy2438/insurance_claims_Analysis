@@ -1,0 +1,74 @@
+[
+  {
+    "witnesses": false,
+    "police_report_available": 0.0,
+    "high_claim": 0.0,
+    "false": 2105,
+    "true": 2148,
+    "All": 4253
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 521,
+    "true": 632,
+    "All": 1153
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": 1.0,
+    "high_claim": 0.0,
+    "false": 1206,
+    "true": 1181,
+    "All": 2387
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 222,
+    "true": 268,
+    "All": 490
+  },
+  {
+    "witnesses": true,
+    "police_report_available": 0.0,
+    "high_claim": 0.0,
+    "false": 569,
+    "true": 421,
+    "All": 990
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 155,
+    "true": 127,
+    "All": 282
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": 1.0,
+    "high_claim": 0.0,
+    "false": 290,
+    "true": 248,
+    "All": 538
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 50,
+    "true": 68,
+    "All": 118
+  },
+  {
+    "witnesses": "All",
+    "police_report_available": "null",
+    "high_claim": "null",
+    "false": 5118,
+    "true": 5093,
+    "All": 10211
+  }
+]

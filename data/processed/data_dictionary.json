@@ -1,0 +1,197 @@
+[
+  {
+    "Unnamed: 0": "months_as_customer",
+    "dtype": "int64",
+    "sample_uniques": "[  5 462 198 384 100]"
+  },
+  {
+    "Unnamed: 0": "age",
+    "dtype": "int64",
+    "sample_uniques": "[37 58 51 47 27]"
+  },
+  {
+    "Unnamed: 0": "policy_number",
+    "dtype": "int64",
+    "sample_uniques": "[ 939011  902576  575784  102488 1129102]"
+  },
+  {
+    "Unnamed: 0": "policy_bind_date",
+    "dtype": "datetime64[ns]",
+    "sample_uniques": "<DatetimeArray>\n['2002-07-16 00:00:00', '2002-11-28 00:00:00', '2007-05-12 00:00:00',\n '1998-02-10 00:00:00', '2012-03-01 00:00:00']\nLength: 5, dtype: datetime64[ns]"
+  },
+  {
+    "Unnamed: 0": "policy_state",
+    "dtype": "object",
+    "sample_uniques": "['IN' 'IL' 'OH']"
+  },
+  {
+    "Unnamed: 0": "policy_csl",
+    "dtype": "object",
+    "sample_uniques": "['250/500' '500/1000' '100/300']"
+  },
+  {
+    "Unnamed: 0": "policy_deductable",
+    "dtype": "int64",
+    "sample_uniques": "[ 500 1000 2000]"
+  },
+  {
+    "Unnamed: 0": "policy_annual_premium",
+    "dtype": "float64",
+    "sample_uniques": "[1145.28 1156.8   751.02 1137.34 1082.7 ]"
+  },
+  {
+    "Unnamed: 0": "umbrella_limit",
+    "dtype": "float64",
+    "sample_uniques": "[      0. 1000000. 4000000. 3000000. 5000000.]"
+  },
+  {
+    "Unnamed: 0": "insured_zip",
+    "dtype": "int64",
+    "sample_uniques": "[360963 432568 712296 402197 577005]"
+  },
+  {
+    "Unnamed: 0": "insured_sex",
+    "dtype": "object",
+    "sample_uniques": "['FEMALE' 'MALE']"
+  },
+  {
+    "Unnamed: 0": "insured_education_level",
+    "dtype": "object",
+    "sample_uniques": "['Associate' 'MD' 'High School' 'PhD' 'JD']"
+  },
+  {
+    "Unnamed: 0": "insured_occupation",
+    "dtype": "object",
+    "sample_uniques": "['priv-house-serv' 'exec-managerial' 'farming-fishing' 'transport-moving'\n 'armed-forces']"
+  },
+  {
+    "Unnamed: 0": "insured_hobbies",
+    "dtype": "object",
+    "sample_uniques": "['movies' 'camping' 'golf' 'bungie-jumping' 'exercise']"
+  },
+  {
+    "Unnamed: 0": "insured_relationship",
+    "dtype": "object",
+    "sample_uniques": "['husband' 'other-relative' 'own-child' 'wife' 'not-in-family']"
+  },
+  {
+    "Unnamed: 0": "capital.gains",
+    "dtype": "int64",
+    "sample_uniques": "[54735  1381     0 16759 63453]"
+  },
+  {
+    "Unnamed: 0": "capital.loss",
+    "dtype": "int64",
+    "sample_uniques": "[88553 50621     0 42211  5905]"
+  },
+  {
+    "Unnamed: 0": "incident_date",
+    "dtype": "datetime64[ns]",
+    "sample_uniques": "<DatetimeArray>\n['2015-02-06 00:00:00', '2015-01-18 00:00:00', '2015-02-13 00:00:00',\n '2015-01-27 00:00:00', '2015-02-21 00:00:00']\nLength: 5, dtype: datetime64[ns]"
+  },
+  {
+    "Unnamed: 0": "incident_type",
+    "dtype": "object",
+    "sample_uniques": "['Single Vehicle Collision' 'Multi-vehicle Collision' 'Parked Car'\n 'Vehicle Theft']"
+  },
+  {
+    "Unnamed: 0": "collision_type",
+    "dtype": "object",
+    "sample_uniques": "['Front Collision' 'Rear Collision' 'Side Collision']"
+  },
+  {
+    "Unnamed: 0": "incident_severity",
+    "dtype": "object",
+    "sample_uniques": "['Minor Damage' 'Total Loss' 'Trivial Damage' 'Major Damage']"
+  },
+  {
+    "Unnamed: 0": "authorities_contacted",
+    "dtype": "object",
+    "sample_uniques": "['Other' 'Police' 'Fire' 'Ambulance']"
+  },
+  {
+    "Unnamed: 0": "incident_state",
+    "dtype": "object",
+    "sample_uniques": "['NY' 'SC' 'WV' 'OH' 'VA']"
+  },
+  {
+    "Unnamed: 0": "incident_city",
+    "dtype": "object",
+    "sample_uniques": "['Hillsdale' 'Arlington' 'Springfield' 'Northbrook' 'Columbus']"
+  },
+  {
+    "Unnamed: 0": "incident_location",
+    "dtype": "object",
+    "sample_uniques": "['6770 1st St' '3275 Pine St' '1741 Best Ridge' '9744 Texas Drive'\n '3289 Britain Drive']"
+  },
+  {
+    "Unnamed: 0": "incident_hour_of_the_day",
+    "dtype": "int64",
+    "sample_uniques": "[20 11  0  6  5]"
+  },
+  {
+    "Unnamed: 0": "number_of_vehicles_involved",
+    "dtype": "int64",
+    "sample_uniques": "[1 2 3 4 5]"
+  },
+  {
+    "Unnamed: 0": "property_damage",
+    "dtype": "object",
+    "sample_uniques": "['NO' 'YES']"
+  },
+  {
+    "Unnamed: 0": "bodily_injuries",
+    "dtype": "int64",
+    "sample_uniques": "[2 0 1 3 4]"
+  },
+  {
+    "Unnamed: 0": "witnesses",
+    "dtype": "int64",
+    "sample_uniques": "[1 5 3 2 0]"
+  },
+  {
+    "Unnamed: 0": "police_report_available",
+    "dtype": "object",
+    "sample_uniques": "['YES' 'NO']"
+  },
+  {
+    "Unnamed: 0": "total_claim_amount",
+    "dtype": "float64",
+    "sample_uniques": "[96200. 31200. 14500.  7500. 16500.]"
+  },
+  {
+    "Unnamed: 0": "injury_claim",
+    "dtype": "int64",
+    "sample_uniques": "[ 3000  3830     0  5400 14780]"
+  },
+  {
+    "Unnamed: 0": "property_claim",
+    "dtype": "int64",
+    "sample_uniques": "[ 500 7370    0 4300 5400]"
+  },
+  {
+    "Unnamed: 0": "vehicle_claim",
+    "dtype": "int64",
+    "sample_uniques": "[58870 32130  5690   420  8270]"
+  },
+  {
+    "Unnamed: 0": "auto_make",
+    "dtype": "object",
+    "sample_uniques": "['Saab' 'Chevrolet' 'Toyota' 'Honda' 'Accura']"
+  },
+  {
+    "Unnamed: 0": "auto_model",
+    "dtype": "object",
+    "sample_uniques": "['92x' '95' 'Malibu' 'Highlander' 'Civic']"
+  },
+  {
+    "Unnamed: 0": "auto_year",
+    "dtype": "int64",
+    "sample_uniques": "[1997 2006 1996 1990 1998]"
+  },
+  {
+    "Unnamed: 0": "fraud_reported",
+    "dtype": "object",
+    "sample_uniques": "['NO' 'YES']"
+  }
+]

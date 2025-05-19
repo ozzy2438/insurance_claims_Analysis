@@ -1,0 +1,97 @@
+{
+  "sheet_names": [
+    "Data_Dictionary",
+    "Severity_Fraud_Rates",
+    "Claims_by_State",
+    "IncidentType_Stats",
+    "Cost_Segments",
+    "Segment_State_Matrix",
+    "Fraud_Crosstab",
+    "Scenario_Simulation",
+    "ROI_Table"
+  ],
+  "row_counts": {
+    "Data_Dictionary": 39,
+    "Severity_Fraud_Rates": 4,
+    "Claims_by_State": 3,
+    "IncidentType_Stats": 4,
+    "Cost_Segments": 3,
+    "Segment_State_Matrix": 5,
+    "Fraud_Crosstab": 9,
+    "Scenario_Simulation": 2,
+    "ROI_Table": 2
+  },
+  "column_counts": {
+    "Data_Dictionary": 3,
+    "Severity_Fraud_Rates": 4,
+    "Claims_by_State": 4,
+    "IncidentType_Stats": 3,
+    "Cost_Segments": 5,
+    "Segment_State_Matrix": 10,
+    "Fraud_Crosstab": 6,
+    "Scenario_Simulation": 2,
+    "ROI_Table": 5
+  },
+  "column_names": {
+    "Data_Dictionary": [
+      "Unnamed: 0",
+      "dtype",
+      "sample_uniques"
+    ],
+    "Severity_Fraud_Rates": [
+      "incident_severity",
+      "total_claims",
+      "fraud_count",
+      "fraud_rate"
+    ],
+    "Claims_by_State": [
+      "policy_state",
+      "total_claims",
+      "total_claim_amount",
+      "avg_claim_amount"
+    ],
+    "IncidentType_Stats": [
+      "incident_type",
+      "avg_claim_amount",
+      "claim_count"
+    ],
+    "Cost_Segments": [
+      "cost_segment_label",
+      "segment_size",
+      "avg_claim",
+      "min_claim",
+      "max_claim"
+    ],
+    "Segment_State_Matrix": [
+      "Unnamed: 0",
+      "segment_total_claim",
+      "Unnamed: 2",
+      "Unnamed: 3",
+      "avg_claim",
+      "Unnamed: 5",
+      "Unnamed: 6",
+      "claim_count",
+      "Unnamed: 8",
+      "Unnamed: 9"
+    ],
+    "Fraud_Crosstab": [
+      "witnesses",
+      "police_report_available",
+      "high_claim",
+      false,
+      true,
+      "All"
+    ],
+    "Scenario_Simulation": [
+      "Unnamed: 0",
+      0
+    ],
+    "ROI_Table": [
+      "Unnamed: 0",
+      "Scenario",
+      "Gross_Profit",
+      "Delta",
+      "Pct_Change"
+    ]
+  }
+}

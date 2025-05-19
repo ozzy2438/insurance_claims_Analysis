@@ -1,0 +1,23 @@
+[
+  {
+    "cost_segment_label": "High",
+    "segment_size": 3087,
+    "avg_claim": 88097.40524781341,
+    "min_claim": 71870,
+    "max_claim": 154740
+  },
+  {
+    "cost_segment_label": "Low",
+    "segment_size": 2505,
+    "avg_claim": 19300.14371257485,
+    "min_claim": 100,
+    "max_claim": 37460
+  },
+  {
+    "cost_segment_label": "Mid",
+    "segment_size": 4619,
+    "avg_claim": 55797.85234899328,
+    "min_claim": 37480,
+    "max_claim": 71840
+  }
+]
