@@ -1,0 +1,16 @@
+[
+  {
+    "Unnamed: 0": 0,
+    "Scenario": "Original",
+    "Gross_Profit": -565190493.38,
+    "Delta": "null",
+    "Pct_Change": "null"
+  },
+  {
+    "Unnamed: 0": 1,
+    "Scenario": "Simulated",
+    "Gross_Profit": -564107827.042,
+    "Delta": 1082666.33799994,
+    "Pct_Change": -0.001915577757731324
+  }
+]

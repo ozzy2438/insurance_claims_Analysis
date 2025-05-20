@@ -1,0 +1,65 @@
+[
+  {
+    "witnesses": false,
+    "police_report_available": 0.0,
+    "high_claim": 0.0,
+    "false": 4253,
+    "All": 4253
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 1153,
+    "All": 1153
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": 1.0,
+    "high_claim": 0.0,
+    "false": 2387,
+    "All": 2387
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 490,
+    "All": 490
+  },
+  {
+    "witnesses": true,
+    "police_report_available": 0.0,
+    "high_claim": 0.0,
+    "false": 990,
+    "All": 990
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 282,
+    "All": 282
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": 1.0,
+    "high_claim": 0.0,
+    "false": 538,
+    "All": 538
+  },
+  {
+    "witnesses": "null",
+    "police_report_available": "null",
+    "high_claim": 1.0,
+    "false": 118,
+    "All": 118
+  },
+  {
+    "witnesses": "All",
+    "police_report_available": "null",
+    "high_claim": "null",
+    "false": 10211,
+    "All": 10211
+  }
+]

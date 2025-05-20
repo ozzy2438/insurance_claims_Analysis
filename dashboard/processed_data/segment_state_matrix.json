@@ -1,0 +1,62 @@
+[
+  {
+    "Unnamed: 0": "policy_state",
+    "segment_total_claim": "IL",
+    "Unnamed: 2": "IN",
+    "Unnamed: 3": "OH",
+    "avg_claim": "IL",
+    "Unnamed: 5": "IN",
+    "Unnamed: 6": "OH",
+    "claim_count": "IL",
+    "Unnamed: 8": "IN",
+    "Unnamed: 9": "OH"
+  },
+  {
+    "Unnamed: 0": "cost_segment_label",
+    "segment_total_claim": "null",
+    "Unnamed: 2": "null",
+    "Unnamed: 3": "null",
+    "avg_claim": "null",
+    "Unnamed: 5": "null",
+    "Unnamed: 6": "null",
+    "claim_count": "null",
+    "Unnamed: 8": "null",
+    "Unnamed: 9": "null"
+  },
+  {
+    "Unnamed: 0": "High",
+    "segment_total_claim": 88020330,
+    "Unnamed: 2": 94239710,
+    "Unnamed: 3": 89696650,
+    "avg_claim": 87321.75595238095,
+    "Unnamed: 5": 87746.4711359404,
+    "Unnamed: 6": 89250.39800995025,
+    "claim_count": 1008,
+    "Unnamed: 8": 1074,
+    "Unnamed: 9": 1005
+  },
+  {
+    "Unnamed: 0": "Low",
+    "segment_total_claim": 15477370,
+    "Unnamed: 2": 15155390,
+    "Unnamed: 3": 17714100,
+    "avg_claim": 18760.44848484849,
+    "Unnamed: 5": 18595.57055214724,
+    "Unnamed: 6": 20478.72832369942,
+    "claim_count": 825,
+    "Unnamed: 8": 815,
+    "Unnamed: 9": 865
+  },
+  {
+    "Unnamed: 0": "Mid",
+    "segment_total_claim": 83773850,
+    "Unnamed: 2": 80548490,
+    "Unnamed: 3": 93407940,
+    "avg_claim": 55886.490993996,
+    "Unnamed: 5": 55897.63358778626,
+    "Unnamed: 6": 55633.07921381775,
+    "claim_count": 1499,
+    "Unnamed: 8": 1441,
+    "Unnamed: 9": 1679
+  }
+]

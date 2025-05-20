@@ -1,0 +1,36 @@
+{
+  "dimensions": [
+    "policy_state",
+    "incident_type",
+    "incident_severity",
+    "cost_segment"
+  ],
+  "measures": [
+    "total_claim_amount",
+    "fraud_reported"
+  ],
+  "filters": {
+    "policy_state": [
+      "IL",
+      "IN",
+      "OH"
+    ],
+    "incident_type": [
+      "Multi-vehicle Collision",
+      "Parked Car",
+      "Single Vehicle Collision",
+      "Vehicle Theft"
+    ],
+    "incident_severity": [
+      "Major Damage",
+      "Minor Damage",
+      "Total Loss",
+      "Trivial Damage"
+    ],
+    "cost_segment": [
+      "Low",
+      "Mid",
+      "High"
+    ]
+  }
+}

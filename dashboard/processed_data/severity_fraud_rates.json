@@ -1,0 +1,26 @@
+[
+  {
+    "incident_severity": "Major Damage",
+    "total_claims": 4164,
+    "fraud_count": 0,
+    "fraud_rate": 0
+  },
+  {
+    "incident_severity": "Minor Damage",
+    "total_claims": 2951,
+    "fraud_count": 0,
+    "fraud_rate": 0
+  },
+  {
+    "incident_severity": "Total Loss",
+    "total_claims": 2366,
+    "fraud_count": 0,
+    "fraud_rate": 0
+  },
+  {
+    "incident_severity": "Trivial Damage",
+    "total_claims": 730,
+    "fraud_count": 0,
+    "fraud_rate": 0
+  }
+]

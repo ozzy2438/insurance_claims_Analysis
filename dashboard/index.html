@@ -387,47 +387,65 @@
     </div>
 
     <script>
-        // Main dashboard data and functions
         document.addEventListener('DOMContentLoaded', function() {
-            // Load all data files
-            Promise.all([
-                fetch('/processed_data/filtered_data.json').then(response => response.json()),
-                fetch('/processed_data/state_summary.json').then(response => response.json()),
-                fetch('/processed_data/incident_summary.json').then(response => response.json()),
-                fetch('/processed_data/severity_summary.json').then(response => response.json()),
-                fetch('/processed_data/fraud_summary.json').then(response => response.json()),
-                fetch('/processed_data/cost_summary.json').then(response => response.json()),
-                fetch('/processed_data/fraud_crosstab.json').then(response => response.json())
-            ]).then(([filteredData, stateSummary, incidentSummary, severitySummary, fraudSummary, costSummary, fraudCrosstab]) => {
-                // Store data globally for filtering
-                window.dashboardData = {
-                    filteredData: filteredData,
-                    stateSummary: stateSummary,
-                    incidentSummary: incidentSummary,
-                    severitySummary: severitySummary,
-                    fraudSummary: fraudSummary,
-                    costSummary: costSummary,
-                    fraudCrosstab: fraudCrosstab,
-                    // Store chart instances for updating
-                    charts: {}
-                };
-                
-                // Initialize dashboard
-                initializeDashboard();
-                
-                // Listen for filter changes
-                document.getElementById('stateFilter').addEventListener('change', updateDashboard);
-                document.getElementById('incidentTypeFilter').addEventListener('change', updateDashboard);
-                document.getElementById('severityFilter').addEventListener('change', updateDashboard);
-                document.getElementById('costSegmentFilter').addEventListener('change', updateDashboard);
-            }).catch(error => {
-                console.error('Error loading dashboard data:', error);
-                alert('Failed to load dashboard data. Please check the console for details.');
-            });
+            // Initialize dashboard data object
+            window.dashboardData = {
+                rawData: [],
+                charts: {}
+            };
             
-            // Initialize dashboard with all data
+            // Load data from processed_data folder
+            loadDashboardData();
+            
+            // Function to load all the data from JSON files
+            async function loadDashboardData() {
+                try {
+                    // Load all necessary data files
+                    const dataFiles = [
+                        'processed_data/claims_by_state.json',
+                        'processed_data/severity_fraud_rates.json',
+                        'processed_data/incidenttype_stats.json',
+                        'processed_data/cost_segments.json',
+                        'processed_data/filtered_data.json',
+                        'processed_data/fraud_crosstab.json'
+                    ];
+                    
+                    // Create an array of fetch promises
+                    const fetchPromises = dataFiles.map(file => 
+                        fetch(file)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`Failed to load ${file}`);
+                                }
+                                return response.json();
+                            })
+                    );
+                    
+                    // Wait for all data to be fetched
+                    const results = await Promise.all(fetchPromises);
+                    
+                    // Store data in window.dashboardData
+                    window.dashboardData.claimsByState = results[0];
+                    window.dashboardData.severityFraud = results[1];
+                    window.dashboardData.incidentType = results[2];
+                    window.dashboardData.costSegments = results[3];
+                    window.dashboardData.filteredData = results[4];
+                    window.dashboardData.fraudCrosstab = results[5];
+                    
+                    // Initialize dashboard elements
+                    initializeDashboard();
+                } catch (error) {
+                    console.error('Error loading dashboard data:', error);
+                    alert('Failed to load dashboard data. Please check the console for details.');
+                }
+            }
+            
+            // Initialize all dashboard elements
             function initializeDashboard() {
-                // Create initial charts
+                // Update KPIs
+                updateKPIs();
+                
+                // Create charts
                 createStateClaimsChart();
                 createSeverityFraudChart();
                 createIncidentTypeChart();
@@ -436,8 +454,11 @@
                 // Populate table
                 populateFraudCrosstabTable();
                 
-                // Update KPIs with all data
-                updateKPIs();
+                // Listen for filter changes
+                document.getElementById('stateFilter').addEventListener('change', updateDashboard);
+                document.getElementById('incidentTypeFilter').addEventListener('change', updateDashboard);
+                document.getElementById('severityFilter').addEventListener('change', updateDashboard);
+                document.getElementById('costSegmentFilter').addEventListener('change', updateDashboard);
             }
             
             // Filter data based on selected filters
