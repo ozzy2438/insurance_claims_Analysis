@@ -20,7 +20,8 @@ insurance_claims_analysis/
 │   └── insights_summary.md # Key findings and business impacts
 │
 ├── docs/                   # Documentation
-│   ├── user_guide.md       # User documentation
+│   ├── executive_summary.md  # Project executive summary
+│   ├── user_guide.md         # User documentation
 │   └── project_structure.md  # This file
 │
 └── README.md               # Project overview
