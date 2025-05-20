@@ -16,7 +16,8 @@ insurance_claims_analysis/
 │
 ├── dashboard/              # Interactive web dashboard
 │   ├── index.html          # Main dashboard page
-│   └── dashboard_design_plan.js  # Dashboard functionality
+│   ├── dashboard_design_plan.js  # Dashboard functionality
+│   └── insights_summary.md # Key findings and business impacts
 │
 ├── docs/                   # Documentation
 │   ├── user_guide.md       # User documentation
