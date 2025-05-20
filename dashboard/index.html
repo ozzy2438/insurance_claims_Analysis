@@ -200,13 +200,30 @@
 </head>
 <body>
     <div class="container-fluid py-4">
-        <!-- Dashboard Header -->
-        <div class="dashboard-header">
+        <!-- Executive Summary -->
+        <div class="dashboard-header mb-4">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-12">
                     <h1 class="dashboard-title">Insurance Claims Analysis Dashboard</h1>
                     <p class="text-muted">Interactive dashboard for claims analysis and fraud detection</p>
-                    <div class="stakeholder-focus">
+                    <div class="alert alert-primary mt-3">
+                        <h5><i class="bi bi-lightbulb"></i> Executive Summary</h5>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">Problem</h6>
+                                <p>Annual financial burden of $578M in insurance claim payments with high suspected fraud rate of 49.9%.</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">Approach</h6>
+                                <p>Data-driven analysis using SQL, Python, and interactive data visualization to identify cost reduction opportunities.</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">Impact</h6>
+                                <p>Projected annual savings of $120M (20.8%) through fraud detection, premium optimization, and process improvements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stakeholder-focus mt-3">
                         <strong>Claims Director Focus:</strong>
                         <ol class="mb-0 mt-2">
                             <li>Identify factors increasing total claim costs</li>
@@ -215,11 +232,13 @@
                         </ol>
                     </div>
                 </div>
-                <div class="col-md-6 text-md-end">
+                <div class="col-12 text-end mt-3">
                     <span class="badge bg-primary">Last Update: May 2025</span>
                 </div>
             </div>
         </div>
+        
+        <!-- Dashboard Header -->
         
         <!-- Filters Section -->
         <div class="filter-section">
