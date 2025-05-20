@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         :root {
@@ -171,21 +170,6 @@
             color: white;
         }
         
-        .stakeholder-focus {
-            background-color: #e9f7f8;
-            border-left: 4px solid var(--primary-color);
-            padding: 10px 15px;
-            margin-top: 10px;
-        }
-        
-        .savings-highlight {
-            background-color: var(--success-color);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .kpi-card {
@@ -241,8 +225,6 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Dashboard Header -->
         
         <!-- Filters Section -->
         <div class="filter-section">
@@ -307,9 +289,9 @@
                     <div class="d-flex align-items-center">
                         <i class="bi bi-currency-dollar kpi-icon text-success"></i>
                         <div>
-                            <div class="kpi-title">Total Payment Amount</div>
+                            <div class="kpi-title">Total Claim Amount</div>
                             <div class="kpi-value" id="totalAmountKPI">$578,033,830</div>
-                            <div class="small text-muted">Sum of all payments</div>
+                            <div class="small text-muted">Total payments</div>
                         </div>
                     </div>
                 </div>
@@ -321,7 +303,7 @@
                         <div>
                             <div class="kpi-title">Average Claim Amount</div>
                             <div class="kpi-value" id="avgClaimKPI">$56,609</div>
-                            <div class="small text-muted">Average per claim</div>
+                            <div class="small text-muted">Per claim average</div>
                         </div>
                     </div>
                 </div>
@@ -333,7 +315,7 @@
                         <div>
                             <div class="kpi-title">Fraud Rate</div>
                             <div class="kpi-value" id="fraudRateKPI">49.9%</div>
-                            <div class="small text-muted">Rate of suspicious claims</div>
+                            <div class="small text-muted">Suspected fraud claims</div>
                         </div>
                     </div>
                 </div>
@@ -344,16 +326,14 @@
         <div class="row mb-4">
             <div class="col-md-6 mb-3">
                 <div class="chart-container">
-                    <div class="chart-title">Cost Factors Analysis</div>
-                    <p class="small text-muted mb-2">Identifying key factors increasing total claim costs</p>
-                    <canvas id="costFactorsChart"></canvas>
+                    <div class="chart-title">Claims by State</div>
+                    <canvas id="stateClaimsChart"></canvas>
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <div class="chart-container">
-                    <div class="chart-title">Fraud Detection Scorecard</div>
-                    <p class="small text-muted mb-2">Probability of fraud by key risk factor combinations</p>
-                    <canvas id="fraudScoreChart"></canvas>
+                    <div class="chart-title">Fraud Rates by Severity</div>
+                    <canvas id="severityFraudChart"></canvas>
                 </div>
             </div>
         </div>
@@ -362,16 +342,14 @@
         <div class="row mb-4">
             <div class="col-md-6 mb-3">
                 <div class="chart-container">
-                    <div class="chart-title">Cost Reduction Opportunity</div>
-                    <p class="small text-muted mb-2">Potential annual claims savings by segment</p>
-                    <canvas id="costReductionChart"></canvas>
+                    <div class="chart-title">Average Claim by Incident Type</div>
+                    <canvas id="incidentTypeChart"></canvas>
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <div class="chart-container">
-                    <div class="chart-title">Premium Optimization Model</div>
-                    <p class="small text-muted mb-2">Current vs. optimized premium pricing model</p>
-                    <canvas id="premiumOptimizationChart"></canvas>
+                    <div class="chart-title">Claims by Cost Segment</div>
+                    <canvas id="costSegmentChart"></canvas>
                 </div>
             </div>
         </div>
@@ -380,8 +358,7 @@
         <div class="row mb-4">
             <div class="col-12">
                 <div class="table-container">
-                    <div class="table-title">Fraud Factors Analysis</div>
-                    <p class="small text-muted mb-3">Analysis of key fraud indicators to support early detection</p>
+                    <div class="table-title">Fraud Analysis Matrix</div>
                     <div class="table-responsive">
                         <table class="custom-table" id="fraudCrosstabTable">
                             <thead>
@@ -403,43 +380,6 @@
             </div>
         </div>
         
-        <!-- Savings Summary -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="table-container">
-                    <div class="table-title">Potential Annual Savings Summary</div>
-                    <p class="small text-muted mb-3">Projected cost reduction based on insights and optimization</p>
-                    
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Fraud Detection Improvement</h5>
-                                    <p class="card-text">Early fraud detection could reduce fraudulent claims by up to <span class="savings-highlight">30%</span>, saving approximately <span class="savings-highlight">$86M</span> annually.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Premium Optimization</h5>
-                                    <p class="card-text">Risk-based premium adjustments could increase revenue by <span class="savings-highlight">12%</span> while maintaining competitive rates in key segments.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Total Projected Impact</h5>
-                                    <p class="card-text">Combined savings and revenue optimization could improve bottom line by <span class="savings-highlight">$120M+</span> annually, representing <span class="savings-highlight">20.8%</span> of current claim payments.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
         <!-- Footer -->
         <div class="footer">
             <p>© 2025 Insurance Claims Analysis Dashboard | All rights reserved.</p>
@@ -447,204 +387,373 @@
     </div>
 
     <script>
-        // Dashboard data and functions
+        // Main dashboard data and functions
         document.addEventListener('DOMContentLoaded', function() {
-            // Data loading
-            const severityFraudData = [
-                {
-                    "incident_severity": "Major Damage",
-                    "total_claims": 4164,
-                    "fraud_count": 3420,
-                    "fraud_rate": 0.8213256484149856
-                },
-                {
-                    "incident_severity": "Minor Damage",
-                    "total_claims": 2951,
-                    "fraud_count": 805,
-                    "fraud_rate": 0.2727888851236869
-                },
-                {
-                    "incident_severity": "Total Loss",
-                    "total_claims": 2366,
-                    "fraud_count": 735,
-                    "fraud_rate": 0.3106508875739645
-                },
-                {
-                    "incident_severity": "Trivial Damage",
-                    "total_claims": 730,
-                    "fraud_count": 133,
-                    "fraud_rate": 0.1821917808219178
-                }
-            ];
+            // Load all data files
+            Promise.all([
+                fetch('/processed_data/filtered_data.json').then(response => response.json()),
+                fetch('/processed_data/state_summary.json').then(response => response.json()),
+                fetch('/processed_data/incident_summary.json').then(response => response.json()),
+                fetch('/processed_data/severity_summary.json').then(response => response.json()),
+                fetch('/processed_data/fraud_summary.json').then(response => response.json()),
+                fetch('/processed_data/cost_summary.json').then(response => response.json()),
+                fetch('/processed_data/fraud_crosstab.json').then(response => response.json())
+            ]).then(([filteredData, stateSummary, incidentSummary, severitySummary, fraudSummary, costSummary, fraudCrosstab]) => {
+                // Store data globally for filtering
+                window.dashboardData = {
+                    filteredData: filteredData,
+                    stateSummary: stateSummary,
+                    incidentSummary: incidentSummary,
+                    severitySummary: severitySummary,
+                    fraudSummary: fraudSummary,
+                    costSummary: costSummary,
+                    fraudCrosstab: fraudCrosstab,
+                    // Store chart instances for updating
+                    charts: {}
+                };
+                
+                // Initialize dashboard
+                initializeDashboard();
+                
+                // Listen for filter changes
+                document.getElementById('stateFilter').addEventListener('change', updateDashboard);
+                document.getElementById('incidentTypeFilter').addEventListener('change', updateDashboard);
+                document.getElementById('severityFilter').addEventListener('change', updateDashboard);
+                document.getElementById('costSegmentFilter').addEventListener('change', updateDashboard);
+            }).catch(error => {
+                console.error('Error loading dashboard data:', error);
+                alert('Failed to load dashboard data. Please check the console for details.');
+            });
             
-            const claimsByStateData = [
-                {
-                    "policy_state": "OH",
-                    "total_claims": 3549,
-                    "total_claim_amount": 200818690,
-                    "avg_claim_amount": 56584.58438996901
-                },
-                {
-                    "policy_state": "IL",
-                    "total_claims": 3332,
-                    "total_claim_amount": 187271550,
-                    "avg_claim_amount": 56203.94657863145
-                },
-                {
-                    "policy_state": "IN",
-                    "total_claims": 3330,
-                    "total_claim_amount": 189943590,
-                    "avg_claim_amount": 57040.11711711712
-                }
-            ];
+            // Initialize dashboard with all data
+            function initializeDashboard() {
+                // Create initial charts
+                createStateClaimsChart();
+                createSeverityFraudChart();
+                createIncidentTypeChart();
+                createCostSegmentChart();
+                
+                // Populate table
+                populateFraudCrosstabTable();
+                
+                // Update KPIs with all data
+                updateKPIs();
+            }
             
-            const incidentTypeData = [
-                {
-                    "incident_type": "Single Vehicle Collision",
-                    "avg_claim_amount": 65407.01925254813,
-                    "claim_count": 4415
-                },
-                {
-                    "incident_type": "Multi-vehicle Collision",
-                    "avg_claim_amount": 61417.16023875114,
-                    "claim_count": 4356
-                },
-                {
-                    "incident_type": "Vehicle Theft",
-                    "avg_claim_amount": 15618.12581913499,
-                    "claim_count": 763
-                },
-                {
-                    "incident_type": "Parked Car",
-                    "avg_claim_amount": 14493.44165435746,
-                    "claim_count": 677
-                }
-            ];
+            // Filter data based on selected filters
+            function getFilteredData() {
+                const stateFilter = document.getElementById('stateFilter').value;
+                const incidentTypeFilter = document.getElementById('incidentTypeFilter').value;
+                const severityFilter = document.getElementById('severityFilter').value;
+                const costSegmentFilter = document.getElementById('costSegmentFilter').value;
+                
+                return window.dashboardData.filteredData.filter(item => {
+                    return (stateFilter === 'all' || item.policy_state === stateFilter) &&
+                           (incidentTypeFilter === 'all' || item.incident_type === incidentTypeFilter) &&
+                           (severityFilter === 'all' || item.incident_severity === severityFilter) &&
+                           (costSegmentFilter === 'all' || item.cost_segment === costSegmentFilter);
+                });
+            }
             
-            const costSegmentsData = [
-                {
-                    "cost_segment_label": "High",
-                    "segment_size": 3087,
-                    "avg_claim": 88097.40524781341,
-                    "min_claim": 71870,
-                    "max_claim": 154740
-                },
-                {
-                    "cost_segment_label": "Low",
-                    "segment_size": 2505,
-                    "avg_claim": 19300.14371257485,
-                    "min_claim": 100,
-                    "max_claim": 37460
-                },
-                {
-                    "cost_segment_label": "Mid",
-                    "segment_size": 4619,
-                    "avg_claim": 55797.85234899328,
-                    "min_claim": 37480,
-                    "max_claim": 71840
-                }
-            ];
-            
-            const fraudCrosstabData = [
-                {"witnesses": "0", "police_report_available": "NO", "high_claim": "NO", "false": 150, "true": 50, "All": 200},
-                {"witnesses": "0", "police_report_available": "NO", "high_claim": "YES", "false": 30, "true": 270, "All": 300},
-                {"witnesses": "0", "police_report_available": "YES", "high_claim": "NO", "false": 200, "true": 100, "All": 300},
-                {"witnesses": "0", "police_report_available": "YES", "high_claim": "YES", "false": 50, "true": 350, "All": 400},
-                {"witnesses": "1+", "police_report_available": "NO", "high_claim": "NO", "false": 300, "true": 100, "All": 400},
-                {"witnesses": "1+", "police_report_available": "NO", "high_claim": "YES", "false": 70, "true": 330, "All": 400},
-                {"witnesses": "1+", "police_report_available": "YES", "high_claim": "NO", "false": 400, "true": 100, "All": 500},
-                {"witnesses": "1+", "police_report_available": "YES", "high_claim": "YES", "false": 100, "true": 400, "All": 500}
-            ];
-            
-            // Cost impact factors data (derived from existing data)
-            const costImpactFactorsData = [
-                {factor: "Incident Type: Single Vehicle", cost_impact: 65407, relative_impact: 1.00},
-                {factor: "Incident Type: Multi-vehicle", cost_impact: 61417, relative_impact: 0.94},
-                {factor: "Damage: Major Damage", cost_impact: 72540, relative_impact: 1.11},
-                {factor: "Damage: Total Loss", cost_impact: 68920, relative_impact: 1.05},
-                {factor: "No Police Report", cost_impact: 62800, relative_impact: 0.96},
-                {factor: "No Witnesses", cost_impact: 59300, relative_impact: 0.91}
-            ];
-            
-            // Savings projection data
-            const savingsProjectionData = {
-                current_annual_cost: 578033830,
-                projected_savings_factors: [
-                    {category: "Improved Fraud Detection", savings_percent: 15, savings_amount: 86705074},
-                    {category: "Optimized Claims Processing", savings_percent: 8, savings_amount: 46242706},
-                    {category: "Premium Adjustment", improvement_percent: 12, improvement_amount: 69364060}
-                ],
-                total_impact_percent: 20.8,
-                total_impact_amount: 120947742
-            };
-            
-            // Update KPIs
-            updateKPIs();
-            
-            // Create charts
-            createCostFactorsChart();
-            createFraudScoreChart();
-            createCostReductionChart();
-            createPremiumOptimizationChart();
-            
-            // Populate table
-            populateFraudCrosstabTable();
-            
-            // Listen for filter changes
-            document.getElementById('stateFilter').addEventListener('change', updateDashboard);
-            document.getElementById('incidentTypeFilter').addEventListener('change', updateDashboard);
-            document.getElementById('severityFilter').addEventListener('change', updateDashboard);
-            document.getElementById('costSegmentFilter').addEventListener('change', updateDashboard);
-            
-            // KPI update function
+            // Update KPIs based on filtered data
             function updateKPIs() {
-                // Total claim count
-                const totalClaims = severityFraudData.reduce((sum, item) => sum + item.total_claims, 0);
+                const filteredData = getFilteredData();
+                
+                // Total claims count
+                const totalClaims = filteredData.length;
                 document.getElementById('totalClaimsKPI').textContent = totalClaims.toLocaleString();
                 
-                // Total payment amount
-                const totalAmount = claimsByStateData.reduce((sum, item) => sum + item.total_claim_amount, 0);
+                // Total claim amount
+                const totalAmount = filteredData.reduce((sum, item) => sum + item.total_claim_amount, 0);
                 document.getElementById('totalAmountKPI').textContent = '$' + totalAmount.toLocaleString();
                 
                 // Average claim amount
-                const avgClaim = totalAmount / totalClaims;
+                const avgClaim = totalClaims > 0 ? totalAmount / totalClaims : 0;
                 document.getElementById('avgClaimKPI').textContent = '$' + Math.round(avgClaim).toLocaleString();
                 
                 // Fraud rate
-                const totalFraud = severityFraudData.reduce((sum, item) => sum + item.fraud_count, 0);
-                const fraudRate = (totalFraud / totalClaims) * 100;
+                const fraudCount = filteredData.filter(item => item.fraud_reported === 'Y').length;
+                const fraudRate = totalClaims > 0 ? (fraudCount / totalClaims) * 100 : 0;
                 document.getElementById('fraudRateKPI').textContent = fraudRate.toFixed(1) + '%';
             }
             
-            // Cost Factors Analysis chart
-            function createCostFactorsChart() {
-                const ctx = document.getElementById('costFactorsChart').getContext('2d');
+            // Create and update state claims chart
+            function createStateClaimsChart() {
+                const ctx = document.getElementById('stateClaimsChart').getContext('2d');
                 
-                const labels = costImpactFactorsData.map(item => item.factor);
-                const costImpact = costImpactFactorsData.map(item => item.cost_impact);
-                const relativeImpact = costImpactFactorsData.map(item => item.relative_impact * 100 - 100);
+                // Process data for chart
+                const chartData = processStateClaimsData();
                 
-                new Chart(ctx, {
+                // Create chart
+                window.dashboardData.charts.stateClaimsChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: labels,
+                        labels: chartData.labels,
                         datasets: [
                             {
-                                label: 'Average Claim Amount ($)',
-                                data: costImpact,
+                                label: 'Claim Count',
+                                data: chartData.claimCounts,
                                 backgroundColor: '#1f77b4',
                                 borderColor: '#1f77b4',
                                 borderWidth: 1,
                                 yAxisID: 'y'
                             },
                             {
-                                label: '% Difference from Average',
-                                data: relativeImpact,
-                                backgroundColor: '#d73027',
-                                borderColor: '#d73027',
+                                label: 'Average Claim Amount ($)',
+                                data: chartData.avgAmounts,
+                                backgroundColor: '#41b6c4',
+                                borderColor: '#41b6c4',
                                 borderWidth: 1,
                                 type: 'line',
                                 yAxisID: 'y1'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.datasetIndex === 0) {
+                                            label += context.raw.toLocaleString();
+                                        } else {
+                                            label += '$' + context.raw.toLocaleString();
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'Claim Count'
+                                }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                grid: {
+                                    drawOnChartArea: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Average Claim Amount ($)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Process data for state claims chart
+            function processStateClaimsData() {
+                const filteredData = getFilteredData();
+                
+                // Group by state
+                const stateGroups = {};
+                filteredData.forEach(item => {
+                    if (!stateGroups[item.policy_state]) {
+                        stateGroups[item.policy_state] = {
+                            count: 0,
+                            totalAmount: 0
+                        };
+                    }
+                    stateGroups[item.policy_state].count++;
+                    stateGroups[item.policy_state].totalAmount += item.total_claim_amount;
+                });
+                
+                // Convert to arrays for chart
+                const labels = Object.keys(stateGroups);
+                const claimCounts = labels.map(state => stateGroups[state].count);
+                const avgAmounts = labels.map(state => 
+                    stateGroups[state].count > 0 ? 
+                    stateGroups[state].totalAmount / stateGroups[state].count : 0
+                );
+                
+                return { labels, claimCounts, avgAmounts };
+            }
+            
+            // Update state claims chart
+            function updateStateClaimsChart() {
+                const chartData = processStateClaimsData();
+                
+                const chart = window.dashboardData.charts.stateClaimsChart;
+                chart.data.labels = chartData.labels;
+                chart.data.datasets[0].data = chartData.claimCounts;
+                chart.data.datasets[1].data = chartData.avgAmounts;
+                chart.update();
+            }
+            
+            // Create and update severity fraud chart
+            function createSeverityFraudChart() {
+                const ctx = document.getElementById('severityFraudChart').getContext('2d');
+                
+                // Process data for chart
+                const chartData = processSeverityFraudData();
+                
+                // Create chart
+                window.dashboardData.charts.severityFraudChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: chartData.labels,
+                        datasets: [
+                            {
+                                label: 'Fraud Rate (%)',
+                                data: chartData.fraudRates,
+                                backgroundColor: '#d73027',
+                                borderColor: '#d73027',
+                                borderWidth: 1,
+                                yAxisID: 'y'
+                            },
+                            {
+                                label: 'Claim Count',
+                                data: chartData.claimCounts,
+                                backgroundColor: '#7fcdbb',
+                                borderColor: '#7fcdbb',
+                                borderWidth: 1,
+                                type: 'line',
+                                yAxisID: 'y1'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.datasetIndex === 0) {
+                                            label += context.raw.toFixed(1) + '%';
+                                        } else {
+                                            label += context.raw.toLocaleString();
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'Fraud Rate (%)'
+                                },
+                                min: 0,
+                                max: 100
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                grid: {
+                                    drawOnChartArea: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Claim Count'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Process data for severity fraud chart
+            function processSeverityFraudData() {
+                const filteredData = getFilteredData();
+                
+                // Group by severity
+                const severityGroups = {};
+                filteredData.forEach(item => {
+                    if (!severityGroups[item.incident_severity]) {
+                        severityGroups[item.incident_severity] = {
+                            count: 0,
+                            fraudCount: 0
+                        };
+                    }
+                    severityGroups[item.incident_severity].count++;
+                    if (item.fraud_reported === 'Y') {
+                        severityGroups[item.incident_severity].fraudCount++;
+                    }
+                });
+                
+                // Convert to arrays for chart
+                const labels = Object.keys(severityGroups);
+                const claimCounts = labels.map(severity => severityGroups[severity].count);
+                const fraudRates = labels.map(severity => 
+                    severityGroups[severity].count > 0 ? 
+                    (severityGroups[severity].fraudCount / severityGroups[severity].count) * 100 : 0
+                );
+                
+                return { labels, claimCounts, fraudRates };
+            }
+            
+            // Update severity fraud chart
+            function updateSeverityFraudChart() {
+                const chartData = processSeverityFraudData();
+                
+                const chart = window.dashboardData.charts.severityFraudChart;
+                chart.data.labels = chartData.labels;
+                chart.data.datasets[0].data = chartData.fraudRates;
+                chart.data.datasets[1].data = chartData.claimCounts;
+                chart.update();
+            }
+            
+            // Create and update incident type chart
+            function createIncidentTypeChart() {
+                const ctx = document.getElementById('incidentTypeChart').getContext('2d');
+                
+                // Process data for chart
+                const chartData = processIncidentTypeData();
+                
+                // Create chart
+                window.dashboardData.charts.incidentTypeChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: chartData.labels,
+                        datasets: [
+                            {
+                                label: 'Average Claim Amount ($)',
+                                data: chartData.avgAmounts,
+                                backgroundColor: [
+                                    '#1f77b4',
+                                    '#41b6c4',
+                                    '#a1dab4',
+                                    '#c7e9b4'
+                                ],
+                                borderColor: [
+                                    '#1f77b4',
+                                    '#41b6c4',
+                                    '#a1dab4',
+                                    '#c7e9b4'
+                                ],
+                                borderWidth: 1
                             }
                         ]
                     },
@@ -654,220 +763,94 @@
                         maintainAspectRatio: false,
                         plugins: {
                             legend: {
-                                position: 'top',
+                                display: false
                             },
                             tooltip: {
                                 callbacks: {
                                     label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.datasetIndex === 0) {
-                                            label += '$' + context.raw.toLocaleString();
-                                        } else {
-                                            label += context.raw.toFixed(1) + '%';
-                                        }
-                                        return label;
+                                        let label = 'Average Claim: $' + context.raw.toLocaleString();
+                                        let count = 'Claim Count: ' + chartData.claimCounts[context.dataIndex].toLocaleString();
+                                        return [label, count];
                                     }
                                 }
                             }
                         },
                         scales: {
-                            y: {
-                                type: 'category',
-                                position: 'left',
-                                title: {
-                                    display: true,
-                                    text: 'Cost Factor'
-                                }
-                            },
                             x: {
                                 title: {
                                     display: true,
                                     text: 'Average Claim Amount ($)'
                                 }
-                            },
-                            y1: {
-                                type: 'linear',
-                                display: true,
-                                position: 'right',
-                                grid: {
-                                    drawOnChartArea: false
-                                },
-                                title: {
-                                    display: true,
-                                    text: '% Difference'
-                                }
                             }
                         }
                     }
                 });
             }
             
-            // Fraud Detection Scorecard chart
-            function createFraudScoreChart() {
-                const ctx = document.getElementById('fraudScoreChart').getContext('2d');
+            // Process data for incident type chart
+            function processIncidentTypeData() {
+                const filteredData = getFilteredData();
                 
-                // Create a simpler visualization using a grouped bar chart instead of matrix
-                // since matrix chart type may not be supported in this Chart.js version
-                
-                // Group data for better visualization
-                const witnessNoPolice = [
-                    (fraudCrosstabData[0].true / fraudCrosstabData[0].All) * 100, // No witness, No police, Low claim
-                    (fraudCrosstabData[1].true / fraudCrosstabData[1].All) * 100  // No witness, No police, High claim
-                ];
-                
-                const witnessWithPolice = [
-                    (fraudCrosstabData[2].true / fraudCrosstabData[2].All) * 100, // No witness, With police, Low claim
-                    (fraudCrosstabData[3].true / fraudCrosstabData[3].All) * 100  // No witness, With police, High claim
-                ];
-                
-                const witnessesNoPolice = [
-                    (fraudCrosstabData[4].true / fraudCrosstabData[4].All) * 100, // With witness, No police, Low claim
-                    (fraudCrosstabData[5].true / fraudCrosstabData[5].All) * 100  // With witness, No police, High claim
-                ];
-                
-                const witnessesWithPolice = [
-                    (fraudCrosstabData[6].true / fraudCrosstabData[6].All) * 100, // With witness, With police, Low claim
-                    (fraudCrosstabData[7].true / fraudCrosstabData[7].All) * 100  // With witness, With police, High claim
-                ];
-                
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Low Claim', 'High Claim'],
-                        datasets: [
-                            {
-                                label: 'No Witness, No Police Report',
-                                data: witnessNoPolice,
-                                backgroundColor: 'rgba(215, 48, 39, 0.9)',
-                                borderColor: 'rgba(215, 48, 39, 1)',
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'No Witness, With Police Report',
-                                data: witnessWithPolice,
-                                backgroundColor: 'rgba(215, 48, 39, 0.6)',
-                                borderColor: 'rgba(215, 48, 39, 1)',
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'With Witness, No Police Report',
-                                data: witnessesNoPolice,
-                                backgroundColor: 'rgba(215, 48, 39, 0.4)',
-                                borderColor: 'rgba(215, 48, 39, 1)',
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'With Witness, With Police Report',
-                                data: witnessesWithPolice,
-                                backgroundColor: 'rgba(215, 48, 39, 0.2)',
-                                borderColor: 'rgba(215, 48, 39, 1)',
-                                borderWidth: 1
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return context.dataset.label + ': ' + context.raw.toFixed(1) + '% Fraud Probability';
-                                    }
-                                }
-                            },
-                            title: {
-                                display: true,
-                                text: 'Fraud Probability by Factor Combination',
-                                position: 'bottom'
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                max: 100,
-                                title: {
-                                    display: true,
-                                    text: 'Fraud Probability (%)'
-                                }
-                            },
-                            x: {
-                                title: {
-                                    display: true,
-                                    text: 'Claim Amount'
-                                }
-                            }
-                        }
+                // Group by incident type
+                const incidentGroups = {};
+                filteredData.forEach(item => {
+                    if (!incidentGroups[item.incident_type]) {
+                        incidentGroups[item.incident_type] = {
+                            count: 0,
+                            totalAmount: 0
+                        };
                     }
+                    incidentGroups[item.incident_type].count++;
+                    incidentGroups[item.incident_type].totalAmount += item.total_claim_amount;
                 });
                 
-                // Add a description below the chart
-                const descHTML = `
-                    <div class="mt-3 small text-muted">
-                        <strong>Key Insight:</strong> Claims with no witnesses, no police report, and high claim amounts 
-                        have a <span class="text-danger fw-bold">90%</span> fraud probability
-                    </div>
-                `;
-                document.getElementById('fraudScoreChart').insertAdjacentHTML('afterend', descHTML);
+                // Convert to arrays for chart
+                const labels = Object.keys(incidentGroups);
+                const claimCounts = labels.map(type => incidentGroups[type].count);
+                const avgAmounts = labels.map(type => 
+                    incidentGroups[type].count > 0 ? 
+                    incidentGroups[type].totalAmount / incidentGroups[type].count : 0
+                );
+                
+                return { labels, claimCounts, avgAmounts };
             }
             
-            // Cost Reduction Opportunity chart
-            function createCostReductionChart() {
-                const ctx = document.getElementById('costReductionChart').getContext('2d');
+            // Update incident type chart
+            function updateIncidentTypeChart() {
+                const chartData = processIncidentTypeData();
                 
-                // Create data from existing data sources
-                const labels = ['Fraud Detection', 'Claims Processing', 'Premium Pricing', 'Total Impact'];
-                const savings = [
-                    savingsProjectionData.projected_savings_factors[0].savings_amount,
-                    savingsProjectionData.projected_savings_factors[1].savings_amount,
-                    savingsProjectionData.projected_savings_factors[2].improvement_amount,
-                    savingsProjectionData.total_impact_amount
-                ];
+                const chart = window.dashboardData.charts.incidentTypeChart;
+                chart.data.labels = chartData.labels;
+                chart.data.datasets[0].data = chartData.avgAmounts;
+                chart.update();
+            }
+            
+            // Create and update cost segment chart
+            function createCostSegmentChart() {
+                const ctx = document.getElementById('costSegmentChart').getContext('2d');
                 
-                const savingsPercent = [
-                    savingsProjectionData.projected_savings_factors[0].savings_percent,
-                    savingsProjectionData.projected_savings_factors[1].savings_percent,
-                    savingsProjectionData.projected_savings_factors[2].improvement_percent,
-                    savingsProjectionData.total_impact_percent
-                ];
+                // Process data for chart
+                const chartData = processCostSegmentData();
                 
-                new Chart(ctx, {
-                    type: 'bar',
+                // Create chart
+                window.dashboardData.charts.costSegmentChart = new Chart(ctx, {
+                    type: 'pie',
                     data: {
-                        labels: labels,
+                        labels: chartData.labels,
                         datasets: [
                             {
-                                label: 'Projected Annual Savings ($)',
-                                data: savings,
+                                data: chartData.segmentSizes,
                                 backgroundColor: [
+                                    '#d73027',
                                     '#41b6c4',
-                                    '#a1dab4',
-                                    '#7fcdbb',
                                     '#1f77b4'
                                 ],
                                 borderColor: [
+                                    '#d73027',
                                     '#41b6c4',
-                                    '#a1dab4',
-                                    '#7fcdbb',
                                     '#1f77b4'
                                 ],
-                                borderWidth: 1,
-                                yAxisID: 'y'
-                            },
-                            {
-                                label: 'Savings Percentage (%)',
-                                data: savingsPercent,
-                                backgroundColor: '#d73027',
-                                borderColor: '#d73027',
-                                borderWidth: 1,
-                                type: 'line',
-                                yAxisID: 'y1'
+                                borderWidth: 1
                             }
                         ]
                     },
@@ -876,47 +859,22 @@
                         maintainAspectRatio: false,
                         plugins: {
                             legend: {
-                                position: 'top',
+                                position: 'right',
                             },
                             tooltip: {
                                 callbacks: {
                                     label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.datasetIndex === 0) {
-                                            label += '$' + context.raw.toLocaleString();
-                                        } else {
-                                            label += context.raw.toFixed(1) + '%';
-                                        }
-                                        return label;
+                                        const label = context.label || '';
+                                        const value = context.raw || 0;
+                                        const total = chartData.segmentSizes.reduce((a, b) => a + b, 0);
+                                        const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : '0.0';
+                                        const avgClaim = '$' + Math.round(chartData.avgAmounts[context.dataIndex]).toLocaleString();
+                                        
+                                        return [
+                                            label + ': ' + value.toLocaleString() + ' claims (' + percentage + '%)',
+                                            'Average Claim: ' + avgClaim
+                                        ];
                                     }
-                                }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                type: 'linear',
-                                display: true,
-                                position: 'left',
-                                title: {
-                                    display: true,
-                                    text: 'Savings Amount ($)'
-                                }
-                            },
-                            y1: {
-                                type: 'linear',
-                                display: true,
-                                position: 'right',
-                                grid: {
-                                    drawOnChartArea: false
-                                },
-                                min: 0,
-                                max: 25,
-                                title: {
-                                    display: true,
-                                    text: 'Savings Percentage (%)'
                                 }
                             }
                         }
@@ -924,135 +882,137 @@
                 });
             }
             
-            // Premium Optimization Model chart
-            function createPremiumOptimizationChart() {
-                const ctx = document.getElementById('premiumOptimizationChart').getContext('2d');
+            // Process data for cost segment chart
+            function processCostSegmentData() {
+                const filteredData = getFilteredData();
                 
-                // Derive premium optimization data from cost segments
-                const riskLevels = ['Very Low', 'Low', 'Medium', 'High', 'Very High'];
-                const currentPremiums = [800, 1200, 1800, 2400, 3200];
-                const optimizedPremiums = [600, 1100, 1900, 2700, 3600];
-                const claimFrequency = [0.02, 0.04, 0.06, 0.09, 0.14];
-                
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: riskLevels,
-                        datasets: [
-                            {
-                                label: 'Current Premium ($)',
-                                data: currentPremiums,
-                                backgroundColor: '#1f77b4',
-                                borderColor: '#1f77b4',
-                                borderWidth: 2,
-                                tension: 0.1,
-                                yAxisID: 'y'
-                            },
-                            {
-                                label: 'Optimized Premium ($)',
-                                data: optimizedPremiums,
-                                backgroundColor: '#41b6c4',
-                                borderColor: '#41b6c4',
-                                borderWidth: 2,
-                                tension: 0.1,
-                                yAxisID: 'y'
-                            },
-                            {
-                                label: 'Claim Frequency',
-                                data: claimFrequency,
-                                backgroundColor: '#d73027',
-                                borderColor: '#d73027',
-                                borderWidth: 2,
-                                tension: 0.1,
-                                yAxisID: 'y1'
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.datasetIndex === 2) {
-                                            label += (context.raw * 100).toFixed(1) + '%';
-                                        } else {
-                                            label += '$' + context.raw.toLocaleString();
-                                        }
-                                        return label;
-                                    }
-                                }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                type: 'linear',
-                                display: true,
-                                position: 'left',
-                                title: {
-                                    display: true,
-                                    text: 'Premium Amount ($)'
-                                }
-                            },
-                            y1: {
-                                type: 'linear',
-                                display: true,
-                                position: 'right',
-                                grid: {
-                                    drawOnChartArea: false
-                                },
-                                min: 0,
-                                max: 0.20,
-                                title: {
-                                    display: true,
-                                    text: 'Claim Frequency'
-                                }
-                            }
-                        }
+                // Group by cost segment
+                const segmentGroups = {};
+                filteredData.forEach(item => {
+                    if (!segmentGroups[item.cost_segment]) {
+                        segmentGroups[item.cost_segment] = {
+                            count: 0,
+                            totalAmount: 0
+                        };
                     }
+                    segmentGroups[item.cost_segment].count++;
+                    segmentGroups[item.cost_segment].totalAmount += item.total_claim_amount;
                 });
+                
+                // Convert to arrays for chart
+                const labels = Object.keys(segmentGroups);
+                const segmentSizes = labels.map(segment => segmentGroups[segment].count);
+                const avgAmounts = labels.map(segment => 
+                    segmentGroups[segment].count > 0 ? 
+                    segmentGroups[segment].totalAmount / segmentGroups[segment].count : 0
+                );
+                
+                return { labels, segmentSizes, avgAmounts };
             }
             
-            // Populate Fraud Crosstab Table
+            // Update cost segment chart
+            function updateCostSegmentChart() {
+                const chartData = processCostSegmentData();
+                
+                const chart = window.dashboardData.charts.costSegmentChart;
+                chart.data.labels = chartData.labels;
+                chart.data.datasets[0].data = chartData.segmentSizes;
+                chart.update();
+            }
+            
+            // Populate fraud crosstab table
             function populateFraudCrosstabTable() {
+                const filteredData = getFilteredData();
+                
+                // Group data for crosstab
+                const crosstabData = processFraudCrosstabData(filteredData);
+                
+                // Get table body
                 const tableBody = document.getElementById('fraudCrosstabTable').getElementsByTagName('tbody')[0];
                 
-                // Clear table
+                // Clear existing rows
                 tableBody.innerHTML = '';
                 
-                // Add data
-                fraudCrosstabData.forEach(row => {
+                // Add rows for each combination
+                crosstabData.forEach(row => {
                     const newRow = tableBody.insertRow();
                     
                     newRow.insertCell().textContent = row.witnesses;
-                    newRow.insertCell().textContent = row.police_report_available;
-                    newRow.insertCell().textContent = row.high_claim;
-                    newRow.insertCell().textContent = row.false;
-                    newRow.insertCell().textContent = row.true;
-                    newRow.insertCell().textContent = row.All;
+                    newRow.insertCell().textContent = row.policeReport;
+                    newRow.insertCell().textContent = row.highClaim;
+                    newRow.insertCell().textContent = row.noFraud;
+                    newRow.insertCell().textContent = row.fraud;
+                    newRow.insertCell().textContent = row.total;
                     
-                    // Highlight high fraud rate rows
-                    if (row.true / row.All > 0.5) {
+                    // Highlight high fraud rows
+                    if (row.total > 0 && (row.fraud / row.total) > 0.5) {
                         newRow.classList.add('table-danger');
                     }
                 });
             }
             
-            // Update dashboard
-            function updateDashboard() {
-                // Here you can update the dashboard based on filter changes
-                console.log('Updating dashboard...');
+            // Process data for fraud crosstab
+            function processFraudCrosstabData(filteredData) {
+                // Define combinations
+                const combinations = [
+                    { witnesses: '0', policeReport: 'NO', highClaim: 'NO' },
+                    { witnesses: '0', policeReport: 'NO', highClaim: 'YES' },
+                    { witnesses: '0', policeReport: 'YES', highClaim: 'NO' },
+                    { witnesses: '0', policeReport: 'YES', highClaim: 'YES' },
+                    { witnesses: '1+', policeReport: 'NO', highClaim: 'NO' },
+                    { witnesses: '1+', policeReport: 'NO', highClaim: 'YES' },
+                    { witnesses: '1+', policeReport: 'YES', highClaim: 'NO' },
+                    { witnesses: '1+', policeReport: 'YES', highClaim: 'YES' }
+                ];
                 
-                // In a real application, you would filter the data based on the filters
-                // and update the charts and tables
+                // Initialize counts
+                const crosstabData = combinations.map(combo => ({
+                    ...combo,
+                    noFraud: 0,
+                    fraud: 0,
+                    total: 0
+                }));
+                
+                // Count occurrences
+                filteredData.forEach(item => {
+                    const witnesses = item.witnesses > 0 ? '1+' : '0';
+                    const policeReport = item.police_report_available === 'YES' ? 'YES' : 'NO';
+                    const highClaim = item.cost_segment === 'High' ? 'YES' : 'NO';
+                    const isFraud = item.fraud_reported === 'Y';
+                    
+                    // Find matching combination
+                    const match = crosstabData.find(
+                        combo => combo.witnesses === witnesses && 
+                                combo.policeReport === policeReport && 
+                                combo.highClaim === highClaim
+                    );
+                    
+                    if (match) {
+                        if (isFraud) {
+                            match.fraud++;
+                        } else {
+                            match.noFraud++;
+                        }
+                        match.total++;
+                    }
+                });
+                
+                return crosstabData;
+            }
+            
+            // Update all dashboard elements
+            function updateDashboard() {
+                // Update KPIs
+                updateKPIs();
+                
+                // Update charts
+                updateStateClaimsChart();
+                updateSeverityFraudChart();
+                updateIncidentTypeChart();
+                updateCostSegmentChart();
+                
+                // Update table
+                populateFraudCrosstabTable();
             }
         });
     </script>
